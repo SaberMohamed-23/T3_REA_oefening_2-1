@@ -1,9 +1,7 @@
 
 body {
-    margin: 0;
+    margin: 1000;
     padding: 0;
-    
-
 }
 
 
@@ -36,6 +34,7 @@ main
     float: left;
     padding: 1%;
     width: 48%;
+    flex: 1; /* Zorgt ervoor dat de content de footer naar beneden duwt */
  
 }
 span
@@ -61,10 +60,11 @@ footer
 {
 display:flex;
 justify-content:center;
-margin-top:80px;
+margin-top:160px;
 padding:30px;
 background-color:rgb(15, 130, 76);
 height: 22vh;
 width: 100%;
+align-self: baseline;
 
 }  

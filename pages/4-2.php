@@ -27,23 +27,42 @@ require "../includes/functions.php";
 
      <h3>Taak 2 Stoplicht</h3>
 
-     <?php checkTrafficLight($stoplicht, $ambulance_Check);?>
+     <?php 
+     $ambulance_Check = "ja"; 
+     $stoplicht = "groen";
+     
+     checkTrafficLight($stoplicht, $ambulance_Check);
+     
+     ?>
     <hr>
     </article>
     
     <article>
     
     <h3>Taak 3 Weekmenu </h3>
-   op maandag eten we <?php showMenu($vandaag_is);?>
+   op maandag eten we: 
+   <?php 
+   $vandaag_is = "maandag";
+   
+   showMenu($vandaag_is);
+   ?>
    <hr>
     </article> 
    
     <article>
        
         <h3>Taak 4 challenge</h3>
-        Geslacht: <?php echo $gender ;?><br>
-        Leeftijd: <?php echo $leeftijd ;?><br>
-        <?php checkLadiesNight($leeftijd, $gender);?>
+    
+        <?php 
+        $leeftijd = 10;
+        $gender = "alien";
+
+        echo "leeftijd: $leeftijd<br>";
+        echo "Gender: $gender<br>";
+        
+        checkLadiesNight($leeftijd, $gender);
+        ?>
+        
     </article>
 
 </section>

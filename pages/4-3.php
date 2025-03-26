@@ -26,7 +26,7 @@ require "../includes/functions.php";
     <article>
      <h2>Uitwerking oefening 4.3</h2>
 
-     <h3>Taak 3 Unix-Time</h3>
+     <h3>Taak 2 Unix-Time</h3>
         <p><?php echo "we zijn nu " .time(). " seconden verder since JAN 01 1970!"; ?><p/>
 
    
@@ -36,16 +36,27 @@ require "../includes/functions.php";
     
     <article>
     
-    <h3>Taak 4 rente berekenen </h3>
+    <h3>Taak 3 rente berekenen </h3>
     <p>Ik ga met een while-loop uitrekenen hoeveel rente ik moet betalen</p>
-    <?php echo calculateInterest($prijs, $gespaard); ?>
+    <?php 
+    $prijs = 4000;
+    $gespaard = 3000;
+    $rente = 1.06;
+    echo "Auto kost: €".$prijs."<br>";
+    echo "Je hebt gespaard: €".$gespaard."<br>";
+    echo "Rente is: $gespaard * $rente.<br><br>";
+    echo calculateInterest($prijs, $gespaard); 
+    ?>
    <hr>
     </article> 
    
     <article>
        
-        <h3>Taak 5 Piramide</h3>
-        <?php echo createpiramide($hoogte); ?>
+        <h3>Taak 4 Piramide</h3>
+        <?php 
+        $hoogte = 6;
+        echo createpiramide($hoogte); 
+        ?>
     </article>
 
 </section>

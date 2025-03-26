@@ -9,25 +9,23 @@ Subject:    T3 REA oef 4.2 en 4.3 functions
 // oefening 4 taak 2
 function checkTrafficLight($kleur, $ambulance)
 {
-    if ($kleur == "rood" || $kleur == "oranje") 
-    {
         if ($ambulance == "ja") 
         {
-            echo "Stop, er komt een ambulance aan";
+        echo "stop er komt een ambulance aan";
         }
-        else 
+        elseif ($kleur == "rood" || $kleur == "oranje") 
         {
             echo "Stop, het stoplicht is " . $kleur;
         }
-    }
-    else 
-    {
-        echo "U mag doorrijden, het stoplicht is groen";
-    }
+        else 
+        {
+            echo "U mag doorrijden, het stoplicht is groen";
+        }
+    
+        
 }
 
-$ambulance_Check = "nee"; 
-$stoplicht = "groen";   
+   
 
 // taak 3
 
@@ -60,8 +58,6 @@ function showMenu($dag){
     }
 }
 
-$vandaag_is = "maandag";
-
 
 // taak challenge
 
@@ -77,9 +73,6 @@ function checkLadiesNight($age, $sex)
     }
 }
 
-$leeftijd = 10;
-$gender = "alien";
-
 
 
 // oefening 4.3 taak 3
@@ -87,20 +80,21 @@ function calculateInterest($price, $saved)
 {
     $counter = 0;
     $maand = 1;
-    
+    $rente = 1.06;
     while ($saved < $price)
-
     {
         $counter++; 
-        $saved *= 1.06;
+        $saved *= $rente;
         echo "maand nr ". $maand++ .": ".round($saved, 2). "<br>";
     }
-    echo "<br>je hebt ".$counter." maanden gespaard.";
+    $wat_overblijft = round($saved - $price, 2);
+
+    echo "je kan na ".$counter." maanden de auto kopen.<br><br>";
+    echo "als je de auto koopt hou je nog €$wat_overblijft over";
 
 }
 
-$prijs = 40000;
-$gespaard = 30000;
+
 
 
 
@@ -108,20 +102,33 @@ $gespaard = 30000;
 
 function createpiramide($height)
 {
-    $num=0;
+    
     //outerloop
     for($i= 0; $i <= $height; $i++)
     {
         // innerloop
         for($j=0; $j <= $i; $j++ )
         {
-             echo $num+= 1;
+             echo $j;
         }
         echo "<br>";
 
     }
-}
 
-$hoogte = 3;
+    
+      //outerloop
+      for($i= $height; $i >= 0; $i--)
+      {
+          // innerloop
+          for($j=0; $j <= $i; $j++ )
+          {
+               echo $j;
+          }
+          echo "<br>";
+  
+        }
+
+
+}
 
 ?>

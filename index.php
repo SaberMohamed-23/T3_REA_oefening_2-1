@@ -9,18 +9,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/T3_REA_oefening_2-1/css/style.css">
-    <style>
-footer
-{
-display:flex;
-justify-content:center;
-margin-top:400px;
-padding:30px;
-background-color:rgb(15, 130, 76);
-height: 22vh;
-width: 100%;
-
-}  
+<style>
+    footer
+    {
+    display:flex;
+    justify-content:center;
+    margin-top:570px;
+    padding:30px;
+    background-color:rgb(15, 130, 76);
+    height: 22vh;
+    width: 100%;
+    flex: 1; /* Zorgt ervoor dat de content de footer naar beneden duwt */
+    }  
     </style>
 </head>
 
