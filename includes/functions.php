@@ -80,4 +80,48 @@ function checkLadiesNight($age, $sex)
 $leeftijd = 10;
 $gender = "alien";
 
+
+
+// oefening 4.3 taak 3
+function calculateInterest($price, $saved)
+{
+    $counter = 0;
+    $maand = 1;
+    
+    while ($saved < $price)
+
+    {
+        $counter++; 
+        $saved *= 1.06;
+        echo "maand nr ". $maand++ .": ".round($saved, 2). "<br>";
+    }
+    echo "<br>je hebt ".$counter." maanden gespaard.";
+
+}
+
+$prijs = 40000;
+$gespaard = 30000;
+
+
+
+//taak 4 creat piramide
+
+function createpiramide($height)
+{
+    $num=0;
+    //outerloop
+    for($i= 0; $i <= $height; $i++)
+    {
+        // innerloop
+        for($j=0; $j <= $i; $j++ )
+        {
+             echo $num+= 1;
+        }
+        echo "<br>";
+
+    }
+}
+
+$hoogte = 3;
+
 ?>
