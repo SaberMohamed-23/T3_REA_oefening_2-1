@@ -36,6 +36,10 @@
                     <li>
                         <a href="<?php echo $path; ?>pages/4-4.php">Oefening 4.4</a>
                     </li>
+
+                    <li>
+                        <a href="<?php echo $path; ?>pages/5-1.php">Oefening 5.1</a>
+                    </li>
                 </ul>
             </li>
         </ul>
