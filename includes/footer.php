@@ -1,10 +1,50 @@
 
 
     <footer>
-    &copy;
-      <?php require "../includes/variable.php"; 
-      echo "Naam: ". $naam . "| "  ." Klas: ". $klas . "| ". $datum;
-      ?>
+  
+      <p>
+          <?php
+         if(isset($_COOKIE["userCountryCode"]) && $_COOKIE["userCountryCode"] !== "0" )
+         {
+           $countryCode = $_COOKIE["userCountryCode"];
+           echo "<img src='../images/flags/$countryCode.png'>";
+           
+         } 
+         else
+         {
+           echo "<a href='../pages/6-1.php'> geef een land op </a>";
+         }
+        
+        ?>
+      </p>
+
+
+      <p>
+        <?php
+        
+        if(isset($_COOKIE["userNameCookie"]) == true)
+        {
+          $username = $_COOKIE["userNameCookie"];
+          echo "<p>$username</p>";
+        }
+        else
+        {
+          echo "Onbekend_gebruiker";
+        }
+        
+        
+        
+        ?>
+      </p>
+
+
+        <p>
+        &copy;
+        <?php 
+        require "../includes/variable.php";
+        echo "Naam: " . $naam . " | Klas: " . $klas . " | " . $datum;
+        ?>
+         </p>
      
     </footer>
 

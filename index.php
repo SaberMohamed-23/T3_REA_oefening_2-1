@@ -70,15 +70,33 @@
                         <a href="<?php echo $path; ?>pages/4-4.php">Oefening 4.4</a>
                     </li>
 
-                    <li>
+                </ul>
+            </li>
+
+            <li>Hoofdstuk 5
+                <ul>
+                <li>
                         <a href="<?php echo $path; ?>pages/5-1.php">Oefening 5.1</a>
                     </li>
                     
                     <li>
                         <a href="<?php echo $path; ?>pages/5-2.php">Oefening 5.2</a>
                     </li>
+
                 </ul>
             </li>
+
+
+            <li>Hoofdstuk 6
+                <ul>
+                <li>
+                        <a href="<?php echo $path; ?>pages/6-1.php">Oefening 6.1</a>
+                    </li>
+
+                </ul>
+            </li>
+
+
         </ul>
     </nav>
 </aside>
@@ -100,11 +118,52 @@
 
     
     <footer>
+
+
+    <p>
+          <?php
+         if(isset($_COOKIE["userCountryCode"]) && $_COOKIE["userCountryCode"] !== "0" )
+         {
+           $countryCode = $_COOKIE["userCountryCode"];
+           echo "<img src='images/flags/$countryCode.png'>";
+           
+         } 
+         else
+         {
+           echo "<a href='pages/6-1.php'> geef een land op</a>";
+         }
+        
+        ?>
+      </p>
+
+
+      <p>
+        <?php
+        
+        if(isset($_COOKIE["userNameCookie"]) == true)
+        {
+          $username = $_COOKIE["userNameCookie"];
+          echo "<p>$username</p>";
+        }
+        else
+        {
+          echo "Onbekend_gebruiker";
+        }
+        
+        
+        
+        ?>
+      </p>
+
+
+        <p>
         &copy;
         <?php 
         require "includes/variable.php";
         echo "Naam: " . $naam . " | Klas: " . $klas . " | " . $datum;
         ?>
+         </p>
+         
     </footer>
 </body>
 
