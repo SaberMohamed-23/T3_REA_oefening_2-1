@@ -9,6 +9,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/T3_REA_oefening_2-1/css/style.css">
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
+
+    
 <style>
     footer
     {
@@ -93,6 +97,11 @@
                         <a href="<?php echo $path; ?>pages/6-1.php">Oefening 6.1</a>
                     </li>
 
+                    <li>
+                        <a href="<?php echo $path; ?>pages/6-2.php">Oefening 6.2</a>
+                    </li>
+
+
                 </ul>
             </li>
 
@@ -137,19 +146,18 @@
       </p>
 
 
-      <p>
+      <p class="user_name">
         <?php
         
         if(isset($_COOKIE["userNameCookie"]) == true)
         {
           $username = $_COOKIE["userNameCookie"];
-          echo "<p>$username</p>";
+          echo "$username";
         }
         else
         {
           echo "Onbekend_gebruiker";
         }
-        
         
         
         ?>

@@ -19,13 +19,13 @@
       </p>
 
 
-      <p>
+      <p class="user_name">
         <?php
         
         if(isset($_COOKIE["userNameCookie"]) == true)
         {
           $username = $_COOKIE["userNameCookie"];
-          echo "<p>$username</p>";
+          echo "$username";
         }
         else
         {

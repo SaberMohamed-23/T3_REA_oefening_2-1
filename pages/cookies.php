@@ -36,6 +36,7 @@
     }
 
     // Stuur een gebruiker door naar de index pagina!
+    //als cookies zijn ingesteld en verwerkt
      header("Location: /T3_REA_oefening_2-1/index.php");
 
 ?>

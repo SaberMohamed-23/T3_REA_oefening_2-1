@@ -9,7 +9,7 @@ require "../includes/nav.php";
 ?>
 
 <section>
-<h2>Uitwerking oefening 5.1</h2>
+<h2>Uitwerking oefening 5.2</h2>
 
 
     <article>

@@ -60,6 +60,11 @@
                         <a href="<?php echo $path; ?>pages/6-1.php">Oefening 6.1</a>
                     </li>
 
+                    <li>
+                        <a href="<?php echo $path; ?>pages/6-2.php">Oefening 6.2</a>
+                    </li>
+
+
                 </ul>
             </li>
 
