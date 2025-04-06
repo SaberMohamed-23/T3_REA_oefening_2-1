@@ -33,6 +33,12 @@ require "../includes/nav.php";
         repository sturen met een push. 
         Met GitHub kun je deze repositories online opslaan en delen. Je kunt een project kopiëren met een clone-commando om lokaal aan de slag te gaan.</p>";
         ?>
+
+
+<br>
+<br>
+<br>
+
     </article>
 </section>
 

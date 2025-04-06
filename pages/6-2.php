@@ -1,10 +1,13 @@
 <?php
-// Hier wordt de code van het bestand header.php ingeladen.
+// Start de sessie om score op te slaan
+session_start();
+
+// Laad de header van de website in
 require "../includes/header.php";
 ?>
 
 <?php
-// Hier wordt het bestand ingeladen waarin de code van de navigatie staat.
+// Laad de navigatiebalk van de website in
 require "../includes/nav.php";
 ?>
 
@@ -14,6 +17,9 @@ require "../includes/nav.php";
     <article>
         <h3>Taak 1</h3>
 
+        <p>Maak een keuze</p>
+
+        <!-- Formulier waarin de gebruiker een keuze maakt: steen, papier of schaar -->
         <form id="gameFrm" method="GET" action="6-2.php">
             <div class="float">
                 <input type="radio" onchange="document.getElementById('gameFrm').submit();" name="keuze" value="rock">
@@ -32,123 +38,111 @@ require "../includes/nav.php";
         </form>
 
         <?php
-        // Variabelen resultaat
+        // Resultaatmogelijkheden opslaan in variabelen
         $jij_wint = "Jij Wint";
         $compwins = "computer wins";
         $gelijkspel = "Gelijkspel";
 
+        // Check of gebruiker een keuze heeft gemaakt
         if (isset($_GET['keuze'])) {
+
+            // Toon de keuze van de gebruiker met een afbeelding
             echo "Jij koos: <img class='R_P_S' src='../images/{$_GET['keuze']}.jpg'>";
 
-            // Keuze computer? Random getal tussen 0 en 2
+            // Genereer een willekeurige keuze voor de computer (rock, paper of scissors)
             $opties = array("rock", "paper", "scissors");
             $computerkeuzegetal = rand(0, 2);
             $computerkeuze = $opties[$computerkeuzegetal];
 
+            // Toon de keuze van de computer
             echo "&nbsp;&nbsp;De computer koos: <img class='R_P_S' src='../images/{$computerkeuze}.jpg'>";
 
+            // Bepaal wie er wint op basis van de gemaakte keuzes
             if ($_GET["keuze"] === "paper") {
                 switch ($computerkeuze) {
-                    case ($opties[1]):
+                    case "paper":
                         $result = $gelijkspel;
                         echo "<p class='resultaat'>$gelijkspel</p>";
                         break;
-                    case ($opties[0]):
+                    case "rock":
                         $result = $jij_wint;
                         echo "<p class='resultaat'>$jij_wint</p>";
                         break;
-                    case ($opties[2]):
+                    case "scissors":
                         $result = $compwins;
                         echo "<p class='resultaat'>$compwins</p>";
                         break;
-                    default:
-                        echo "kies iets";
                 }
             } elseif ($_GET["keuze"] === "rock") {
                 switch ($computerkeuze) {
-                    case ($opties[1]):
+                    case "paper":
                         $result = $compwins;
                         echo "<p class='resultaat'>$compwins</p>";
                         break;
-                    case ($opties[0]):
+                    case "rock":
                         $result = $gelijkspel;
                         echo "<p class='resultaat'>$gelijkspel</p>";
                         break;
-                    case ($opties[2]):
+                    case "scissors":
                         $result = $jij_wint;
                         echo "<p class='resultaat'>$jij_wint</p>";
                         break;
-                    default:
-                        echo "kies iets";
                 }
             } elseif ($_GET["keuze"] === "scissors") {
                 switch ($computerkeuze) {
-                    case ($opties[1]):
+                    case "paper":
                         $result = $jij_wint;
                         echo "<p class='resultaat'>$jij_wint</p>";
                         break;
-                    case ($opties[0]):
+                    case "rock":
                         $result = $compwins;
                         echo "<p class='resultaat'>$compwins</p>";
                         break;
-                    case ($opties[2]):
-                       $result = $gelijkspel;
+                    case "scissors":
+                        $result = $gelijkspel;
                         echo "<p class='resultaat'>$gelijkspel</p>";
                         break;
-                    default:
-                        echo "kies iets";
                 }
             }
 
+            // Als de score nog niet bestaat in de sessie, stel deze in op 0
+            if (!isset($_SESSION['user1'])) {
+                $_SESSION['user1'] = 0; // gebruiker
+                $_SESSION['user2'] = 0; // computer
+            }
 
-                   
-        session_start();
+            // Score bijhouden
+            if ($result == $jij_wint) {
+                $_SESSION['user1'] += 1;
+            } elseif ($result == $compwins) {
+                $_SESSION['user2'] += 1;
+            }
 
-        $_SESSION["user1"] = 0;
-        $_SESSION["user2"] = 0;
-        $score_jij= $_SESSION["user1"];
-        $score_comp =$_SESSION["user2"];
-       
-        if($result == $jij_wint)
-        {
-            $score_jij = $_SESSION["user1"];
-            
-            for($i = 0; $i <=1; $i++)
-            {
-                $score_jij += $i;
+            // Toon huidige score
+            echo "First to 5 wins!";
+            echo "<p class='scorebord'><span class='score'>score</span><br>
+                USER: " . $_SESSION['user1'] . " <br>
+                COMPUTER: " . $_SESSION['user2'] . "</p>";
+
+            // Check of iemand 5 punten heeft gehaald
+            if ($_SESSION['user1'] >= 5 || $_SESSION['user2'] >= 5) {
+                // Bepaal de winnaar en toon dit op het scherm
+                $winnaar = $_SESSION['user2'] >= 5
+                    ? "<p class='winnaar'>WINNAAR IS: <span class='COMPUTER'>COMPUTER</span>"
+                    : "<p class='winnaar'>WINNAAR IS: <span class='USER'>USER</span></p>";
+
+                echo $winnaar ;
+                echo "<br>Maak een nieuwe keuze om spel opnieuw te spelen";
+
+                // Sessie resetten zodat scores opnieuw kunnen worden opgebouwd
+                session_destroy();
             }
         }
-        elseif($result ==  $compwins)
-        {
-            $score_comp = $_SESSION["user2"];
-            
-            for($i = 0; $i <=2; $i++)
-            {       
-                $score_comp +=$i;
-            }
-        }
-        
-    
-
-        echo $score_jij."<br>";
-        echo $score_comp;
-        session_destroy();
-
-    }
-
-    
-
-    
-       
-
-
-
-
         ?>
     </article>
 </section>
 
 <?php
-// footer
+// Laad de footer van de website in
 require "../includes/footer.php";
 ?>

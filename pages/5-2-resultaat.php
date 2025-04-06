@@ -1,5 +1,5 @@
 <?php
-$username="Sabrr._23";
+$username="Sabrr23";
 $password="0000";
 
 if($_SERVER["REQUEST_METHOD"] =="POST")
